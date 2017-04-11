@@ -26,6 +26,8 @@ git clone https://github.com/twilio/linkit-one-aws-twilio-demo.git
 
 #### Install the following packages with the Arduino Package Manager:
 * ArduinoJSON by Benoit Blanchon
+#### Install using the instructions in the Repo:
+* [AWS LinkIt Demo](https://github.com/twilio/linkit-one-aws-twilio-demo)
 
 Open this .ino file in Arduino IDE (if you haven't yet, you also need to [set up your LinkIt](https://docs.labs.mediatek.com/resource/linkit-one/en/getting-started) to connect)
 
