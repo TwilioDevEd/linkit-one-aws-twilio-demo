@@ -21,7 +21,7 @@ For receiving messages, use API Gateway and pass through form parameters.  Retur
 
 ### LinkIt
 <pre>
-git clone <this repo>
+git clone https://github.com/twilio/linkit-one-aws-twilio-demo.git
 </pre>
 
 #### Install the following packages with the Arduino Package Manager:
