@@ -34,26 +34,22 @@
  * configuration you need.  You'll need to upload the private key,
  * certificate, and root key to the board.
  * 
- * For help, see our article (link in README)
  */
-String           AWS_IOT_MQTT_HOST =             "SOMEHOST.iot.REGION.amazonaws.com";
+String           AWS_IOT_MQTT_HOST =             "SOMETHING.iot.REGION.amazonaws.com";
 String           AWS_IOT_MQTT_CLIENT_ID =        "LinkItONE_Twilio";
-String           AWS_IOT_ROOT_CA_FILENAME =      "SOMETHING.key";
-String           AWS_IOT_CERTIFICATE_FILENAME =  "SOMETHING.pem";
-String           AWS_IOT_PRIVATE_KEY_FILENAME =  "SOMETHING.pem";
-
-// Don't edit these two unless you also edit the /aws_iot_config.h file!  They
-// are hardcoded in the AWS library.
-
-// We've left the names here for ease of plug and play, but when ready feel
-// free to go edit these.
-String           AWS_IOT_MY_THING_NAME =         "mtk_test_mf"; 
+String           AWS_IOT_ROOT_CA_FILENAME =      "G5.pem";
+String           AWS_IOT_CERTIFICATE_FILENAME =  "SOMETHING-certificate.pem";
+String           AWS_IOT_PRIVATE_KEY_FILENAME =  "SOMETHING-private.pem";
 String           AWS_IOT_TOPIC_NAME = "$aws/things/mtk_test_mf/shadow/update";
 
 
+// Don't edit this one unless you also edit the /aws_iot_config.h file!
+// We've left the name for ease of plug and play, but might eventually 
+// rework the park of the library.
+String           AWS_IOT_MY_THING_NAME =         "mtk_test_mf"; 
 
 /* Should we use WiFi or GPRS?  'true' for WiFi, 'false' for GPRS */
-boolean WIFI_USED =                     false;
+boolean WIFI_USED =                     true;
 
 /* 
  *  Now, the _Twilio specific_ configuration you need to send an outgoing
@@ -67,11 +63,11 @@ String your_device_number        = "+18005551212"; // Twilio # you own
 String number_to_text            = "+18005551212"; // Perhaps your cellphone?
 String your_sms_message          = "Can you draw this owl?";
 String optional_image_path       = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/GreatHornedOwl-Wiki.jpg/800px-GreatHornedOwl-Wiki.jpg";
+String linkit_image_path         = "http://com.twilio.prod.twilio-docs.s3.amazonaws.com/quest/programmable_wireless/code/LinkIt_Teaser.jpg";
 
 /* Optional Settings.  You probably do not need to change these. */
 String twilio_topic        = "twilio";
 const int mqtt_tls_port = 8883;
-
 
 /* Friendly WiFi Network details go here.  Auth choices:
  *  * LWIFI_OPEN 
@@ -79,7 +75,7 @@ const int mqtt_tls_port = 8883;
  *  * LWIFI_WEP
  */
 #define WIFI_AP "FRIENDLY_NETWORK"
-#define WIFI_PASSWORD "NETWORK_PASSWORD"
+#define WIFI_PASSWORD "PASSWORD_TO_IT"
 #define WIFI_AUTH LWIFI_WPA
 
 /* 
@@ -201,7 +197,7 @@ int32_t handle_incoming_message_twilio(MQTTCallbackParams params)
                 from_number,
                 to_number, 
                 String(return_body),
-                String("")
+                String(linkit_image_path)
         );
 
         return 0;
