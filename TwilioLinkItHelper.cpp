@@ -181,7 +181,9 @@ boolean  TwilioLinkitHelper::start_mqtt(void* ctx)
         
         connectParams.mqttCommandTimeout_ms = 20000;
         connectParams.tlsHandshakeTimeout_ms = 10000;
+        connectParams.KeepAliveInterval_sec = 60000;
         connectParams.isSSLHostnameVerify = true;
+        // connectParams.disconnectHandler = __disc;
         connectParams.disconnectHandler = __disc;
 
         int rc = aws_iot_mqtt_connect(&connectParams);
