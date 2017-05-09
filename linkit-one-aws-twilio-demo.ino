@@ -45,7 +45,7 @@ String           AWS_IOT_TOPIC_NAME = "$aws/things/mtk_test_mf/shadow/update";
 
 // Don't edit this one unless you also edit the /aws_iot_config.h file!
 // We've left the name for ease of plug and play, but might eventually 
-// rework the park of the library.
+// rework this part of the library.
 String           AWS_IOT_MY_THING_NAME =         "mtk_test_mf"; 
 
 /* Should we use WiFi or GPRS?  'true' for WiFi, 'false' for GPRS */
@@ -74,8 +74,8 @@ const int mqtt_tls_port = 8883;
  *  * LWIFI_WPA
  *  * LWIFI_WEP
  */
-#define WIFI_AP "FRIENDLY_NETWORK"
-#define WIFI_PASSWORD "PASSWORD_TO_IT"
+#define WIFI_AP "Signal 2017"
+#define WIFI_PASSWORD ""
 #define WIFI_AUTH LWIFI_WPA
 
 /* 
@@ -278,7 +278,8 @@ void setup()
  *   Disconnect callback function - what do you want to do when it goes down?
  *   
 */
-void disconnect_function() {
+void disconnect_function() 
+{
 
         Serial.println("Oh no, we disconnected!");
         delay(10000);
@@ -297,7 +298,8 @@ void disconnect_function() {
  *   you want to perform over and over again until infinity (or power 
  *   loss!) here.
 */
-boolean main_thread(void* user_data) {
+boolean main_thread(void* user_data) 
+{
         static bool sent_intro = false;
         
         Serial.println("Thread...");
@@ -327,7 +329,8 @@ boolean main_thread(void* user_data) {
  * This example just creates a new thread which calls main_thread()
  * every 3 seconds.
  */
-void loop() {
+void loop() 
+{
         Serial.flush();
         /* We can do our main tasks in a new thread with LTask */
         LTask.remoteCall(main_thread, NULL);
