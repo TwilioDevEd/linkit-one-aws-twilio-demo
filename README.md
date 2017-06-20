@@ -7,7 +7,7 @@ We're using AWS IoT as a middleman to improve the security of our IoT setup.  In
 
 See our article here for the matching Lambda function and the full details on the rule to trigger it:
 
-.....
+[Send SMS and MMS Messages with the LinkIt ONE, Twilio Programmable Wireless, AWS IoT and Lambda](https://www.twilio.com/docs/guides/send-sms-mms-linkit-one-programmable-wireless-aws-iot-lambda)
 
 ## Build example:
 
